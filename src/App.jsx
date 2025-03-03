@@ -1,12 +1,12 @@
 
-import { Route, Router, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { useState } from 'react'
 import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
-import CartPage from './components/CartPage'
+import CartPage from './pages/CartPage'
 
 
 export default function App(){
@@ -22,11 +22,11 @@ export default function App(){
 
 
   return ( 
-    <Router>
+    <BrowserRouter>
       <Header/>
       <main className='min-h-screen'>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home addToCart={addToCart}/>} />
 
           <Route path="/product/:id" element={<ProductDetail 
           addToCart={addToCart} />} />
@@ -36,7 +36,7 @@ export default function App(){
         </Routes> 
       </main>
       <Footer/>
-    </Router>
+    </BrowserRouter>
 
   )
 }
