@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem, onSaveCart }) => {
     const [discountCode, setDiscountCode] = useState('')
@@ -100,8 +101,16 @@ const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem, onSaveCart }) => {
                         focus:ring-2 focus:ring-blue-400' />
 
                         <button onClick={handApplyDiscount} className="px-4 py-2 bg-blut-500 text-white rounded
-                         hover:bg-blue-600 transition-colors">применить</button>
+                         hover:bg-blue-600 transition-colors">
+                            применить
+                            </button>
                         </div>
+                    </div>
+                    <div className="mt-8 text-center">
+                        <Link to={'/checkout'} className='inline-block bg-green-500
+                        text-white px-6 py-3 rounded hover:bg-green-600transition-colors'>
+                            купить
+                             </Link>
                     </div>
                 </>
             )
