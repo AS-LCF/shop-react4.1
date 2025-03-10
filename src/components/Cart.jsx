@@ -11,8 +11,10 @@ const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem, onSaveCart }) => {
     const hendleApplyDiscount = () => {
         if (discountCode.trim().toUpperCase() === 'SALE2025') {
             setAppliedDiscount(0.1)
+            localStorage.setItem('discountCode','SALE2025')
         } else {
             setAppliedDiscount(0)
+            localStorage.removeItem('discountCode','SALE2025')
             alert('неверный промокод')
         }
     }
