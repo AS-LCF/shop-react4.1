@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const CheckoutForm = ({cartItems, finalPrise, onSubmit})=>{
+const CheckoutForm = ({ finalPrice, onSubmit})=>{
     const [formData, setFormData]=useState({
         name:'',
         email:'',
@@ -67,10 +67,10 @@ return(
                     <option value="cash">Наличные при получении</option>
                 </select>
         </div>
-        <button type="submit" childrenw-full bg-green-500 text-white px-4
-        py-2 rounded hover:bg-green-600 transition-colors>
-            Подтвердить заказ
-        </button>
+        <button type='submit' className='w-full bg-green-500 text-white px-4 py-2 
+        rounded hover:bg-green-600 transition-colors'>
+					Подтвердить заказ
+				</button>
         </form>
     </div>
 )
