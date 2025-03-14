@@ -1,3 +1,5 @@
+import { useState,useEffect } from "react";
+
 const PurchareHistory=()=>{
     const [orders, setOrders]=useState();
     const [loading,setLoading]=useState(true)
@@ -5,7 +7,7 @@ const PurchareHistory=()=>{
     useEffect(()=>{
         const fetchOrders=async() =>{
             try{
-                const response = await fethc ('http://localhost:3001/orders')
+                const response = await fetch('http://localhost:3001/orders')
                 if (!response.ok){
                     throw new Error('Ошибка при загрузке истории заказов')
                 }
@@ -37,14 +39,14 @@ const PurchareHistory=()=>{
             {orders.lenght === 0 ?(
                     <p>История пуста</p>
                 ):(
-                    orders.map(prder=>(
-                        <div key={orders.id} className="mb-6 p-4 bg-white shadow rounded">
+                    orders.map(order=>(
+                        <div key={order.id} className="mb-6 p-4 bg-white shadow rounded">
                             <div className="flex justify-between items-center mb-2">
                                 <h2 className="text-xl font-bold"> 
                                 Заказ  #{order.id}
                                 </h2>
                                 <span className='text-gray-600'>
-                                {new Date(order.date).toLocalString()}
+                                {new Date(order.date).toLocaleString()}
                                 </span>
                             </div>
                             <p className="mb-1"><strong>имя</strong>{order.name}</p>
