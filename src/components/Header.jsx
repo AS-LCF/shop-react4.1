@@ -28,9 +28,9 @@ const Header = () => {
   }
 
   return (
-    <header className='bg-white shadow-md'>
+    <header className='bg-white dark:bg-gray-800  shadow-md transition-colors duration-300'>
       <div className='container mx-auto flex justify-between items-center p-4'>
-        <Link to={"/"} className='text-2xl font-bold text-gray-600 hover:text-gray-800'>
+        <Link to={"/"} className='text-2xl font-bold dark:text-white text-gray-600 hover:text-gray-800'>
           E-Commerce Shop
         </Link>
         <div className='flex items-center space-x-4'>

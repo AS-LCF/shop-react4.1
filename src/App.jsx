@@ -9,6 +9,8 @@ import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
 import PurchareHistory from "./pages/PurchareHistory"
 import ThankYouPage from './pages/ThankYouPage'
+import FavoritesPage from './pages/FavoritesPage'
+import { FavoritesProvider } from './context/FavoritesContext'
 
 export default function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -51,19 +53,22 @@ export default function App() {
 
 
   return (
-    <BrowserRouter>
-      <Header />
-      <main className='min-h-screen'>
-        <Routes>
-          <Route path="/" element={<Home addToCart={addToCart} />} />
-          <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
-          <Route path="/cart" element={<CartPage cartItems={cartItems} onUpdateQuantity={handleUpdateQuantity} onRemoveItem={handleRemoveItem} />} />
-          <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} clearCart={clearCart} />} />
-          <Route path="/orders" element={<PurchareHistory />} />
-          <Route path="/thank-you" element={<ThankYouPage/>} />
-        </Routes>
-      </main>
-      <Footer />
-    </BrowserRouter>
+    <FavoritesProvider>
+      <BrowserRouter>
+        <Header />
+        <main className='min-h-screen'>
+          <Routes>
+            <Route path="/" element={<Home addToCart={addToCart} />} />
+            <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
+            <Route path="/cart" element={<CartPage cartItems={cartItems} onUpdateQuantity={handleUpdateQuantity} onRemoveItem={handleRemoveItem} />} />
+            <Route path="/checkout" element={<CheckoutPage cartItems={cartItems} clearCart={clearCart} />} />
+            <Route path="/orders" element={<PurchareHistory />} />
+            <Route path="/thank-you" element={<ThankYouPage />} />
+            <Route path='/favorites' element={<FavoritesPage/>} />
+          </Routes>
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </FavoritesProvider>
   )
 }

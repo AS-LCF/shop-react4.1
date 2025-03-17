@@ -4,28 +4,29 @@ const ThankYouPage = ()=>{
     const location = useLocation()
     const {orderId, total}= location.state || {}
     return(
-            <div className="container mx-auto p-4">
-                <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded 
-                text-center">
-                    <h2 className="text-2xl font-bold mb-4"> 
+            <div className="container mx-auto p-4 bg-white dark:bg-gray-800 
+            transition-colors duration-300">
+                <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-900 shadow rounded 
+                text-center ">
+                    <h2 className="text-2xl font-bold mb-4 dark:text-gray-200"> 
                         Спасибо за заказ! 
 
                     </h2>
                     {orderId ?(
                         <>
-                        <p>
+                        <p className="text-gray-800 dark:text-gray-200">
                         Ваш заказ успешно оформлен. 
                         Мы свяжемся с вами для подтверждения доставки! 
                         </p>
-                        <p className="mt-4">
+                        <p className="mt-4 text-gray-800 dark:text-gray-200">
                             Номер заказа <strong>№{orderId}</strong>
                         </p>
-                        <p className="mt-4">
+                        <p className="mt-4 text-gray-800 dark:text-gray-200">
                             Общая стоимость: <strong>{Number(total).toFixed(2)}₽</strong>
                         </p>
                         </>
                     ):(
-                        <p>
+                        <p className="text-gray-800 dark:text-gray-200">
                             Информация о заказе не найдена! 
                         </p>
                     )}
