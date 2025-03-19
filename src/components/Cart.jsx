@@ -33,9 +33,12 @@ const Cart = ({ cartItems, onUpdateQuantity, onRemoveItem }) => {
         <>
           <div className='space-y-4'>
             {cartItems.map(item => (
-              <div key={item.id} className='flex flex-col md:flex-row items-center justify-between border-b pb-4 dark:border-gray-700'>
+              <div key={item.id} className='flex flex-col md:flex-row items-center justify-between border-b pb-4
+               dark:border-gray-700'>
                 <div className='flex items-center w-full md:w-1/2'>
-                  <img src={item.image} alt={item.title} className='w-20 h-20 object-cover rounded mr-4' />
+                  <img 
+                  src={"/public/assests/"+ item.image} 
+                  alt={item.title} className='w-20 h-20 object-cover rounded mr-4' />
                   <div>
                     <h3 className='text-lg font-semibold dark:text-gray-200'>
                       {item.title}
